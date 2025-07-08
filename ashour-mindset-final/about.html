@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Ashour - Ashour Mindset</title>
+    <meta name="description" content="Learn about Ashour's journey, expertise, and approach to mindset coaching and performance optimization.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy': '#243044',
+                        'coral': '#FF6A4D',
+                        'aqua': '#3FD0C9',
+                        'porcelain': '#FAF7F3',
+                    },
+                    fontFamily: {
+                        'head': ['Poppins', 'sans-serif'],
+                        'body': ['Montserrat', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --clr-navy: #243044;
+            --clr-coral: #FF6A4D;
+            --clr-aqua: #3FD0C9;
+            --clr-white: #FAF7F3;
+        }
+        
+        .btn-luxe {
+            background: var(--clr-coral);
+            color: var(--clr-white);
+            padding: 12px 28px;
+            border-radius: 9999px;
+            font-weight: bold;
+            letter-spacing: 0.05em;
+            transition: all 0.15s ease-out;
+            box-shadow: 0 4px 10px rgba(255,106,77,.25);
+            display: inline-block;
+            text-decoration: none;
+        }
+        .btn-luxe:hover {
+            transform: scale(1.015);
+        }
+        
+        .dropdown-panel {
+            background: rgba(36,48,68,.8);
+            backdrop-filter: blur(12px);
+            color: var(--clr-white);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            padding: 24px;
+            opacity: 0;
+            transform: translateY(16px);
+            pointer-events: none;
+            transition: all 0.2s ease;
+        }
+        .nav-item:hover .dropdown-panel {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body class="font-body text-navy">
+    <!-- Navigation Bar -->
+    <nav class="fixed w-full z-50 bg-navy transition-all duration-300 ease-in-out" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center max-w-7xl">
+            <a href="/" class="flex items-center">
+                <div class="h-8 w-32 bg-coral rounded flex items-center justify-center text-porcelain font-head font-bold">ASHOUR</div>
+            </a>
+            <div class="flex items-center space-x-8">
+                <ul class="hidden md:flex space-x-8 text-porcelain">
+                    <li><a href="/" class="hover:text-coral transition-colors duration-200" data-translate="nav.home">Home</a></li>
+                    <li><a href="about.html" class="text-coral" data-translate="nav.about">About</a></li>
+                    <li><a href="services.html" class="hover:text-coral transition-colors duration-200" data-translate="nav.services">Services</a></li>
+                    <li><a href="blog.html" class="hover:text-coral transition-colors duration-200" data-translate="nav.blog">Blog</a></li>
+                    <li><a href="testimonials.html" class="hover:text-coral transition-colors duration-200" data-translate="nav.testimonials">Testimonials</a></li>
+                    <li><a href="contact.html" class="hover:text-coral transition-colors duration-200" data-translate="nav.contact">Contact</a></li>
+                </ul>
+                <div class="relative nav-item">
+                    <button id="lang-switcher" class="text-porcelain hover:text-coral transition-colors duration-200 flex items-center space-x-2">
+                        <img src="assets/icons/uk-flag.png" alt="English" class="w-4 h-4 rounded-full">
+                        <span>EN</span>
+                    </button>
+                    <div class="dropdown-panel absolute right-0 mt-2 w-32 text-left">
+                        <a href="#" class="flex items-center space-x-2 py-2 px-3 hover:text-coral rounded" data-lang-code="en">
+                            <img src="assets/icons/uk-flag.png" alt="English" class="w-4 h-4 rounded-full">
+                            <span>English</span>
+                        </a>
+                        <a href="#" class="flex items-center space-x-2 py-2 px-3 hover:text-coral rounded" data-lang-code="de">
+                            <img src="assets/icons/germany-flag.png" alt="German" class="w-4 h-4 rounded-full">
+                            <span>Deutsch</span>
+                        </a>
+                        <a href="#" class="flex items-center space-x-2 py-2 px-3 hover:text-coral rounded" data-lang-code="ar">
+                            <img src="assets/icons/egypt-flag.png" alt="Arabic" class="w-4 h-4 rounded-full">
+                            <span>العربية</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-20 bg-gradient-to-br from-navy to-aqua">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-porcelain">
+                    <h1 class="font-head font-bold text-5xl md:text-6xl leading-tight mb-6">Meet Ashour</h1>
+                    <p class="text-xl mb-8 opacity-90">Transforming mindsets, unlocking potential, and creating lasting change through clarity-driven coaching.</p>
+                    <a href="#story" class="btn-luxe">Discover My Journey →</a>
+                </div>
+                <div class="relative">
+                    <div class="w-96 h-96 mx-auto relative">
+                        <div class="absolute inset-0 bg-coral rounded-full opacity-20"></div>
+                        <div class="absolute inset-4 bg-coral rounded-full opacity-40"></div>
+                        <img src="assets/images/about-placeholder.jpg" alt="Ashour portrait" class="absolute inset-8 w-80 h-80 rounded-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section id="story" class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="font-head font-bold text-4xl md:text-5xl text-navy mb-12 text-center">My Story</h2>
+                
+                <div class="space-y-8 text-lg text-gray-700 leading-relaxed">
+                    <p>My journey into mindset coaching began with my own transformation. Like many successful professionals, I found myself achieving external success while feeling internally scattered and unfulfilled. Despite reaching career milestones, I struggled with clarity, direction, and sustainable momentum.</p>
+                    
+                    <p>The turning point came when I realized that success without clarity is just sophisticated chaos. This revelation led me to dive deep into the psychology of performance, studying under renowned coaches and researchers, and developing what would become the foundation of my coaching methodology.</p>
+                    
+                    <p>Over the past decade, I've had the privilege of working with hundreds of individuals and organizations, from startup founders to Fortune 500 executives, helping them break through mental barriers and achieve unprecedented levels of performance and fulfillment.</p>
+                    
+                    <p>What sets my approach apart is the integration of data-driven insights with proven psychological principles. I believe that transformation happens when we combine emotional intelligence with measurable strategies, creating sustainable change that goes beyond temporary motivation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="py-20 bg-porcelain">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-16">
+                <h2 class="font-head font-bold text-4xl md:text-5xl text-navy mb-4">Areas of Expertise</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Specialized knowledge and skills developed through years of practice and continuous learning</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-aqua rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-head font-bold text-xl text-navy mb-4">Cognitive Behavioral Coaching</h3>
+                    <p class="text-gray-600">Helping clients identify and transform limiting thought patterns that hinder performance and growth.</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-coral rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-head font-bold text-xl text-navy mb-4">Leadership Development</h3>
+                    <p class="text-gray-600">Developing authentic leadership skills that inspire teams and drive organizational success.</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-aqua rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-head font-bold text-xl text-navy mb-4">Performance Analytics</h3>
+                    <p class="text-gray-600">Using data and metrics to track progress and optimize coaching strategies for maximum impact.</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-coral rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M12 6V4a2 2 0 00-2-2H8a2 2 0 00-2 2v2H4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V8a2 2 0 00-2-2h-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-head font-bold text-xl text-navy mb-4">Organizational Psychology</h3>
+                    <p class="text-gray-600">Understanding and optimizing team dynamics, culture, and organizational effectiveness.</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-aqua rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-head font-bold text-xl text-navy mb-4">Strategic Planning</h3>
+                    <p class="text-gray-600">Creating clear, actionable roadmaps that align personal values with professional objectives.</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-coral rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-head font-bold text-xl text-navy mb-4">Stress Management</h3>
+                    <p class="text-gray-600">Teaching sustainable techniques for managing pressure and maintaining peak performance under stress.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credentials Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-16">
+                <h2 class="font-head font-bold text-4xl md:text-5xl text-navy mb-4">Credentials & Certifications</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Professional qualifications and continuous education in coaching and psychology</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                <div>
+                    <h3 class="font-head font-bold text-2xl text-navy mb-6">Education</h3>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-coral pl-6">
+                            <h4 class="font-semibold text-navy">Master's in Applied Psychology</h4>
+                            <p class="text-gray-600">Columbia University, New York</p>
+                            <p class="text-sm text-gray-500">Specialization in Performance Psychology</p>
+                        </div>
+                        <div class="border-l-4 border-aqua pl-6">
+                            <h4 class="font-semibold text-navy">Bachelor's in Business Administration</h4>
+                            <p class="text-gray-600">NYU Stern School of Business</p>
+                            <p class="text-sm text-gray-500">Magna Cum Laude</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-head font-bold text-2xl text-navy mb-6">Certifications</h3>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-coral pl-6">
+                            <h4 class="font-semibold text-navy">Certified Professional Coach (CPC)</h4>
+                            <p class="text-gray-600">International Coach Federation</p>
+                        </div>
+                        <div class="border-l-4 border-aqua pl-6">
+                            <h4 class="font-semibold text-navy">Cognitive Behavioral Therapy Certification</h4>
+                            <p class="text-gray-600">Beck Institute</p>
+                        </div>
+                        <div class="border-l-4 border-coral pl-6">
+                            <h4 class="font-semibold text-navy">Mindfulness-Based Stress Reduction</h4>
+                            <p class="text-gray-600">University of Massachusetts Medical School</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="py-20 bg-navy">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="font-head font-bold text-4xl md:text-5xl text-porcelain mb-8">My Coaching Philosophy</h2>
+                <blockquote class="text-2xl text-porcelain opacity-90 italic mb-8 leading-relaxed">
+                    "True transformation happens when we align our deepest values with our daily actions, creating a life of purpose, clarity, and unstoppable momentum."
+                </blockquote>
+                <div class="grid md:grid-cols-3 gap-8 mt-16">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-coral rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-head font-bold text-xl text-porcelain mb-3">Clarity First</h3>
+                        <p class="text-porcelain opacity-80">Without clarity, effort is wasted. We start by getting crystal clear on what truly matters.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-aqua rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-head font-bold text-xl text-porcelain mb-3">Action-Oriented</h3>
+                        <p class="text-porcelain opacity-80">Insights without action are just entertainment. We focus on practical, implementable strategies.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-coral rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-head font-bold text-xl text-porcelain mb-3">Measurable Results</h3>
+                        <p class="text-porcelain opacity-80">Progress should be visible and trackable. We use data to ensure continuous improvement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-porcelain">
+        <div class="container mx-auto px-6 max-w-7xl text-center">
+            <h2 class="font-head font-bold text-4xl md:text-5xl text-navy mb-6">Ready to Start Your Transformation?</h2>
+            <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">Let's work together to unlock your potential and create the clarity and momentum you need to achieve your goals.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="btn-luxe">Schedule a Consultation</a>
+                <a href="services.html" class="bg-transparent border-2 border-navy text-navy px-8 py-3 rounded-full font-semibold hover:bg-navy hover:text-porcelain transition-all duration-200">Explore Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy py-16">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="h-8 w-32 bg-coral rounded flex items-center justify-center text-porcelain font-head font-bold mb-6">ASHOUR</div>
+                    <p class="text-porcelain opacity-80 mb-6">Empowering individuals and organizations to achieve clarity, build momentum, and unlock their true potential.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-porcelain bg-opacity-10 rounded-full flex items-center justify-center text-porcelain hover:bg-coral transition-colors duration-200">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-porcelain bg-opacity-10 rounded-full flex items-center justify-center text-porcelain hover:bg-coral transition-colors duration-200">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-porcelain bg-opacity-10 rounded-full flex items-center justify-center text-porcelain hover:bg-coral transition-colors duration-200">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.746-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-head font-bold text-porcelain mb-6">Services</h4>
+                    <ul class="space-y-3 text-porcelain opacity-80">
+                        <li><a href="#" class="hover:text-coral transition-colors duration-200">Mindset Reset</a></li>
+                        <li><a href="#" class="hover:text-coral transition-colors duration-200">Performance Coaching</a></li>
+                        <li><a href="#" class="hover:text-coral transition-colors duration-200">Data-Driven Workshops</a></li>
+                        <li><a href="#" class="hover:text-coral transition-colors duration-200">Group Sessions</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-head font-bold text-porcelain mb-6">Company</h4>
+                    <ul class="space-y-3 text-porcelain opacity-80">
+                        <li><a href="about.html" class="hover:text-coral transition-colors duration-200">About</a></li>
+                        <li><a href="blog.html" class="hover:text-coral transition-colors duration-200">Blog</a></li>
+                        <li><a href="testimonials.html" class="hover:text-coral transition-colors duration-200">Testimonials</a></li>
+                        <li><a href="contact.html" class="hover:text-coral transition-colors duration-200">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-head font-bold text-porcelain mb-6">Contact Info</h4>
+                    <ul class="space-y-3 text-porcelain opacity-80">
+                        <li>hello@ashourmindset.com</li>
+                        <li>+1 (555) 123-4567</li>
+                        <li>New York, NY</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-porcelain border-opacity-20 pt-8 text-center text-porcelain opacity-60">
+                <p>&copy; 2024 Ashour Mindset. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./src/main.js"></script>
+</body>
+</html>
+

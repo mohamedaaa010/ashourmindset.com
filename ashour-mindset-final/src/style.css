@@ -1,0 +1,49 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .bg-brand   { background: var(--clr-navy); }
+  .text-brand { color: var(--clr-navy);      }
+
+  /* Standard CTA */
+  .btn-primary {
+    @apply bg-[var(--clr-coral)] text-[var(--clr-white)] rounded-full
+           px-6 py-3 font-bold tracking-wide transition hover:opacity-90
+           focus:outline-none;
+  }
+
+  /* ───────── Luxe micro-interaction button (Apple-style) ───────── */
+  .btn-luxe {
+    @apply bg-[var(--clr-coral)] text-[var(--clr-white)] rounded-full
+           px-7 py-3 font-bold tracking-wide transition duration-150
+           ease-out shadow-lg;
+    box-shadow: 0 4px 10px rgba(255,106,77,.25);
+  }
+  .btn-luxe:hover { transform: scale(1.015); }
+
+  /* ───────── Glassy dropdown panel (Samsung-style) ───────── */
+  .dropdown-panel {
+    @apply bg-[rgba(36,48,68,.8)] backdrop-blur-md text-[var(--clr-white)]
+           rounded-xl shadow-lg p-6 opacity-0 translate-y-4 pointer-events-none
+           transition duration-200;
+  }
+  .nav-item:hover .dropdown-panel {
+    @apply opacity-100 translate-y-0 pointer-events-auto;
+  }
+}
+
+:root {
+  /* Color Palette */
+  --clr-navy  : #243044; /* Deep Midnight Navy */
+  --clr-coral : #FF6A4D; /* Vibrant Coral      */
+  --clr-aqua  : #3FD0C9; /* Fresh Aqua         */
+  --clr-white : #FAF7F3; /* Porcelain White    */
+
+  /* Typography */
+  --font-head : \'Poppins\', sans-serif;
+  --font-body : \'Montserrat\', sans-serif;
+}
+
+

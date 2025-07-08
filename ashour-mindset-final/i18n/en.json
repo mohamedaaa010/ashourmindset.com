@@ -1,0 +1,17 @@
+
+{
+  "nav":{
+    "home":"Home",
+    "about":"About",
+    "services":"Services",
+    "blog":"Insights",
+    "testimonials":"Testimonials",
+    "contact":"Contact"
+  },
+  "hero":{
+    "headline":"Clarity Powers Momentum.",
+    "subtitle":"Turn scattered potential into repeatable performance.",
+    "cta":"Start Your Momentum →"
+  }
+}
+
