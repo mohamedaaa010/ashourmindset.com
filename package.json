@@ -6,6 +6,6 @@
     "dotenv": "^16.0.0"
   },
   "scripts": {
-    "lint:translations": "node test/checkTranslations.js"
+    "lint:translations": "node scripts/checkTranslations.js"
   }
 }
