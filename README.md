@@ -103,6 +103,15 @@ This website prioritizes mobile experience with:
 - **Responsive Design**: Mobile-first approach
 - **Accessibility**: WCAG 2.1 AA compliant
 
+## 🧪 Translation Consistency Test
+
+Run the Node.js script to verify that all files in `i18n/` share the same key
+structure:
+
+```bash
+node test/checkTranslations.js
+```
+
 ## 📞 Support
 
 For technical support or customization requests, refer to the included `WEBSITE_MANAGEMENT_GUIDE.md` for detailed instructions on managing content without coding experience.
