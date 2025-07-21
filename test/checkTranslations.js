@@ -9,6 +9,8 @@ require('dotenv').config();
 
 const { rateTranslation } = require('./utils/rateTranslation');
 
+const OPENAI_KEY = process.env.OPENAI_API_KEY;
+
 // Folder containing translation JSON files
 const LOCALES_DIR = path.join(__dirname, '..', 'i18n');
 // Values that indicate an unfinished translation
@@ -87,18 +89,40 @@ function getValue(obj, key) {
   // -------- Phase 3: quality sampling using OpenAI --------
   let qualityFailed = false;
   const worst = [];
-  for (const locale of locales) {
-    if (locale === 'en') continue;
-    const pairs = enKeys.map(key => ({key, source: getValue(en, key), target: getValue(data[locale], key)}));
-    const sample = pairs.sort(() => Math.random() - 0.5).slice(0, 40);
-    const results = await Promise.all(sample.map(p => rateTranslation(p.source, p.target).then(score => ({...p, score})).catch(err => ({...p, score:0, error: err.message}))));
-    results.sort((a,b)=>a.score-b.score);
-    worst.push(...results.slice(0, 5).map(r => ({locale, key: r.key, score: r.score.toFixed(2), source: r.source, target: r.target})));
-    const bad = results.filter(r => r.score < 0.7).length;
-    if (bad > results.length * 0.2) {
-      qualityFailed = true;
-      console.error(`Poor translation quality detected for ${locale}: ${bad}/${results.length} below 0.70`);
+  if (OPENAI_KEY) {
+    for (const locale of locales) {
+      if (locale === 'en') continue;
+      const pairs = enKeys.map(key => ({ key, source: getValue(en, key), target: getValue(data[locale], key) }));
+      const sample = pairs.sort(() => Math.random() - 0.5).slice(0, 40);
+      let results;
+      try {
+        results = await Promise.all(
+          sample.map(p =>
+            rateTranslation(p.source, p.target).then(score => ({ ...p, score }))
+          )
+        );
+      } catch (err) {
+        console.error(`OpenAI API error: ${err.message}`);
+        process.exit(1);
+      }
+      results.sort((a, b) => a.score - b.score);
+      worst.push(
+        ...results.slice(0, 5).map(r => ({
+          locale,
+          key: r.key,
+          score: r.score.toFixed(2),
+          source: r.source,
+          target: r.target,
+        }))
+      );
+      const bad = results.filter(r => r.score < 0.7).length;
+      if (bad > results.length * 0.2) {
+        qualityFailed = true;
+        console.error(`Poor translation quality detected for ${locale}: ${bad}/${results.length} below 0.70`);
+      }
     }
+  } else {
+    console.log('Skipping OpenAI quality checks (set OPENAI_API_KEY to enable).');
   }
 
   if (worst.length) {

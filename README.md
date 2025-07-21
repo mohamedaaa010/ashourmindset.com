@@ -86,6 +86,16 @@ Text content is managed through JSON files in the `i18n/` folder:
 
 To edit text, modify the values in these JSON files without changing the keys.
 
+### Checking translation quality
+
+The `test/checkTranslations.js` script verifies that every locale contains the same keys and optionally rates random samples using the OpenAI API.
+
+1. Run `npm install` once to install the script's dependencies.
+2. Set the `OPENAI_API_KEY` environment variable if you want quality checks.
+3. Execute `node test/checkTranslations.js`.
+
+The script prints any issues and exits with an error code when translations need attention.
+
 ## 📱 Mobile Optimization
 
 This website prioritizes mobile experience with:

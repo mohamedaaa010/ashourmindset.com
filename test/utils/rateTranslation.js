@@ -64,7 +64,13 @@ async function callOpenAI(source, target) {
   });
 
   if (!response.ok) {
-    throw new Error(`OpenAI API request failed: ${response.status}`);
+    let text;
+    try {
+      text = await response.text();
+    } catch (e) {
+      text = '';
+    }
+    throw new Error(`OpenAI API request failed: ${response.status} ${text}`.trim());
   }
 
   const data = await response.json();
