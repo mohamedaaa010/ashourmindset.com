@@ -156,7 +156,7 @@ The hero video is the background video on your home page.
 **Email Address:**
 ```html
 <!-- Find this -->
-<a href="mailto:hello@ashourmindset.com">hello@ashourmindset.com</a>
+<a href="mailto:info@ashourmindset.com">info@ashourmindset.com</a>
 
 <!-- Change to your email -->
 <a href="mailto:your-email@example.com">your-email@example.com</a>

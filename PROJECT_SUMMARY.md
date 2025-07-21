@@ -177,7 +177,7 @@ ashour-mindset/
 - **Data Protection**: No sensitive data storage
 
 ## 📞 Contact Information (Placeholder)
-- **Email**: hello@ashourmindset.com
+- **Email**: info@ashourmindset.com
 - **Phone**: +1 (555) 123-4567
 - **Address**: 123 Mindset Avenue, Suite 456, New York, NY 10001
 - **Hours**: Monday-Friday 9:00 AM - 6:00 PM EST
