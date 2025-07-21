@@ -112,3 +112,11 @@ For technical support or customization requests, refer to the included `WEBSITE_
 **Last Updated**: July 2025  
 **Version**: 1.0.0
 
+
+## Translation Consistency Test
+
+```bash
+# run full lint (requires OPENAI_API_KEY)
+node test/checkTranslations.js
+```
+Install dependencies first with `npm install` and put your `OPENAI_API_KEY` in a `.env` file or environment variable.
