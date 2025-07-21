@@ -1,0 +1,10 @@
+{
+  "name": "ashourmindset-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "node-fetch": "^2.6.7"
+  }
+}
