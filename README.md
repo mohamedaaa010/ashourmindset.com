@@ -40,6 +40,9 @@ ashour-mindset-final/
 ├── src/
 │   ├── main.js             # Main JavaScript functionality
 │   └── style.css           # Custom CSS styles
+├── tests/
+│   ├── replace_location.js     # Node script for location replacement
+│   └── test_address_cleaner.py # Pytest suite for address cleaner
 └── tailwind.config.js      # Tailwind CSS configuration
 ```
 
