@@ -112,3 +112,14 @@ For technical support or customization requests, refer to the included `WEBSITE_
 **Last Updated**: July 2025  
 **Version**: 1.0.0
 
+## Translation Consistency Test
+
+```bash
+# run full lint (requires OPENAI_API_KEY)
+node test/checkTranslations.js
+```
+
+This script validates that all translation files are aligned. Ensure you have a
+`.env` file with `OPENAI_API_KEY` (or set the variable in your environment) before
+running it.
+
