@@ -174,7 +174,7 @@ The hero video is the background video on your home page.
 **Address:**
 ```html
 <!-- Find this -->
-<p>123 Mindset Avenue, Suite 456<br>New York, NY 10001</p>
+<p>123 Mindset Avenue, Suite 456<br>Dubai, UAE</p>
 
 <!-- Change to your address -->
 <p>Your Street Address<br>Your City, State ZIP</p>
