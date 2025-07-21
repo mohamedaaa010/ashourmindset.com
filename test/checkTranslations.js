@@ -1,16 +1,25 @@
+// This script checks that all translation files are complete and reasonably
+// accurate. It is intentionally straightforward so non-developers can run it
+// with `node test/checkTranslations.js` once Node.js and the dependencies are
+// installed (run `npm install`).
+
 const fs = require('fs');
 const path = require('path');
 require('dotenv').config();
 
 const { rateTranslation } = require('./utils/rateTranslation');
 
+// Folder containing translation JSON files
 const LOCALES_DIR = path.join(__dirname, '..', 'i18n');
+// Values that indicate an unfinished translation
 const PLACEHOLDERS = new Set(['TODO', 'TBD', '...', '—']);
 
 function readJson(file) {
+  // Read a JSON file from disk
   return JSON.parse(fs.readFileSync(file, 'utf8'));
 }
 
+// Recursively collect dot-separated keys from nested objects
 function collectKeys(obj, prefix = '') {
   let keys = [];
   for (const [k, v] of Object.entries(obj)) {
@@ -25,10 +34,15 @@ function collectKeys(obj, prefix = '') {
 }
 
 function getValue(obj, key) {
+  // Retrieve a nested value like "nav.home" from an object
   return key.split('.').reduce((o, k) => (o ? o[k] : undefined), obj);
 }
 
 (async function main() {
+  if (!fs.existsSync(LOCALES_DIR)) {
+    console.error(`Translation folder not found: ${LOCALES_DIR}`);
+    process.exit(1);
+  }
   const files = fs.readdirSync(LOCALES_DIR).filter(f => f.endsWith('.json'));
   const locales = files.map(f => path.basename(f, '.json'));
   const data = {};
@@ -42,7 +56,7 @@ function getValue(obj, key) {
     process.exit(1);
   }
 
-  // Phase 1: key parity
+  // -------- Phase 1: key parity --------
   const enKeys = collectKeys(en);
   let parityFailed = false;
   for (const locale of locales) {
@@ -55,7 +69,7 @@ function getValue(obj, key) {
     }
   }
 
-  // Phase 2: placeholder/empty/identical checks
+  // -------- Phase 2: placeholder/empty/identical checks --------
   let placeholderFailed = false;
   for (const locale of locales) {
     if (locale === 'en') continue;
@@ -70,7 +84,7 @@ function getValue(obj, key) {
     }
   }
 
-  // Phase 3: quality sampling using OpenAI
+  // -------- Phase 3: quality sampling using OpenAI --------
   let qualityFailed = false;
   const worst = [];
   for (const locale of locales) {
@@ -92,6 +106,7 @@ function getValue(obj, key) {
   }
 
   if (parityFailed || placeholderFailed || qualityFailed) {
+    console.error('Translation check failed.');
     process.exit(1);
   }
   console.log('All translations look good!');
