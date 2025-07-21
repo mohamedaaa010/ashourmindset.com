@@ -1,0 +1,11 @@
+{
+  "name": "ashourmindset",
+  "type": "module",
+  "dependencies": {
+    "openai": "^4.0.0",
+    "dotenv": "^16.0.0"
+  },
+  "scripts": {
+    "lint:translations": "node test/checkTranslations.js"
+  }
+}
