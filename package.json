@@ -1,0 +1,28 @@
+{
+  "name": "ashourmindset.com",
+  "version": "1.0.0",
+  "description": "A professional multilingual website for Ashour's mindset coaching and performance optimization services.",
+  "main": "replace_location.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohamedaaa010/ashourmindset.com.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mohamedaaa010/ashourmindset.com/issues"
+  },
+  "homepage": "https://github.com/mohamedaaa010/ashourmindset.com#readme",
+  "dependencies": {
+    "dotenv": "^17.2.0",
+    "openai": "^5.10.1",
+    "p-limit": "^6.2.0"
+  }
+}
