@@ -133,3 +133,11 @@ This script validates that all translation files are aligned. Ensure you have a
 `.env` file with `OPENAI_API_KEY` (or set the variable in your environment) before
 running it.
 
+## Translation Quality Check
+
+1. Install dependencies with `npm install`.
+2. Copy `.env.example` to `.env` and add your OpenAI API key.
+3. Run `node test/checkTranslations.js`.
+
+The script uses the OpenAI API for quality checking, so a valid API key is required.
+
