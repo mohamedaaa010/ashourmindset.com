@@ -126,7 +126,7 @@ For technical support or customization requests, refer to the included `WEBSITE_
 
 ```bash
 # run full lint (requires OPENAI_API_KEY)
-node test/checkTranslations.js
+node scripts/checkTranslations.js
 ```
 
 This script validates that all translation files are aligned. Ensure you have a
