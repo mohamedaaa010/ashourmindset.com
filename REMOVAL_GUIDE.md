@@ -196,6 +196,7 @@ The home page (`index.html`) has several sections you might want to remove:
 1. **Open** `index.html` in a text editor
 2. **Find the section** you want to remove by searching for its heading text
 3. **Look for the section container** - usually starts with `<section>` and ends with `</section>`
+   - **Review the UX** before deleting: if the section contains a contact button or other key link, decide whether that access should stay available. If so, keep the link or move it to the footer instead of deleting it entirely.
 4. **Delete the entire section** from `<section>` to `</section>`
 
 **Example - Removing the Brand Logos Section:**
