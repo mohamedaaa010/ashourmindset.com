@@ -72,8 +72,15 @@ document.addEventListener("DOMContentLoaded", function() {
     langLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            currentLanguage = this.getAttribute('data-lang-code');
-            loadTranslations();
+            const lang = this.getAttribute('data-lang-code');
+
+            if (lang === 'en') {
+                window.location.href = window.location.origin + window.location.pathname;
+                return;
+            }
+
+            const translateUrl = `https://translate.google.com/translate?sl=en&tl=${lang}&u=${encodeURIComponent(window.location.href)}`;
+            window.location.href = translateUrl;
         });
     });
 
@@ -423,8 +430,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Initialize the application
-    loadTranslations();
+    // Initialize the application (default language only)
     
     // Add CSS for animations
     const style = document.createElement('style');
