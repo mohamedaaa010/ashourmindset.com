@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ashour Mindset – Book a Session</title>
 
-  <!-- quick brand styling (optional) -->
+  <!-- quick brand styling -->
   <style>
     :root {
       --navy:  #243044;
@@ -18,10 +18,21 @@
       background:var(--bg);
       color:var(--navy);
     }
-    .wrap{max-width:760px;margin:0 auto;padding:2rem 1rem;}
+    .wrap{max-width:760px;margin:0 auto;padding:2rem 1rem;text-align:center;}
     h1{font-size:2rem;margin:0 0 1rem}
-    p {margin:0 0 1.5rem}
-    iframe{width:100%;height:100vh;border:0;border-radius:12px}
+    p {margin:0 0 2rem}
+    .cta{
+      display:inline-block;
+      padding:14px 32px;
+      background:var(--coral);
+      color:#fff;
+      font-weight:600;
+      font-size:1rem;
+      text-decoration:none;
+      border-radius:8px;
+      transition:opacity .2s ease;
+    }
+    .cta:hover{opacity:.85}
   </style>
 </head>
 
@@ -30,27 +41,14 @@
     <h1>Book Your 45-Minute Consultation</h1>
     <p>Secure checkout with Apple Pay, Google Pay, or card.</p>
 
-    <!-- ▸▸ INLINE EMBED  (Apple Pay works because allow="payment") -->
-    <iframe
-      src="https://cal.com/ashourmindset/45min?embed=true"
-      title="Ashour Mindset Booking"
-      loading="lazy"
-      allow="payment">
-    </iframe>
-    <!-- ◂◂ INLINE EMBED END -->
+    <!-- direct link to Cal-hosted booking page -->
+    <a
+      href="https://cal.com/ashour-mindset/45min"
+      class="cta"
+      target="_blank"
+      rel="noopener">
+      Book Now
+    </a>
   </div>
-
-
-  <!-- ▸▸ OPTIONAL POP-UP EMBED  (uncomment if you prefer the overlay) 
-  <script async src="https://app.cal.com/embed/embed.js"></script>
-  <a  href="https://cal.com/ashourmindset/45min"
-      data-cal-link="ashourmindset/45min"
-      data-cal-config='{"layout":"popup","theme":"light"}'
-      style="display:inline-block;margin:2rem auto 0;padding:14px 28px;
-             background:var(--coral);color:#fff;font-weight:600;
-             text-decoration:none;border-radius:8px;">
-    Book Now
-  </a>
-  ◂◂ POP-UP EMBED END -->
 </body>
 </html>
