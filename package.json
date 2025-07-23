@@ -9,8 +9,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint:translations": "node scripts/checkTranslations.js",
-    "build:widget": "esbuild public/js/bookingWidget.js --bundle --minify --outfile=public/js/bookingWidget.min.js"
+    "lint:translations": "node scripts/checkTranslations.js"
   },
   "repository": {
     "type": "git",
@@ -25,13 +24,9 @@
   "homepage": "https://github.com/mohamedaaa010/ashourmindset.com#readme",
   "dependencies": {
     "dotenv": "^17.2.0",
-    "flatpickr": "^4.6.13",
     "openai": "^5.10.1",
-    "ouibounce": "^0.0.12",
     "p-limit": "^6.2.0",
     "stripe": "^18.3.0"
   },
-  "devDependencies": {
-    "esbuild": "^0.25.8"
-  }
+  "devDependencies": {}
 }
