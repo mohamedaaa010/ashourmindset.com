@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Base palette shared across the site */
 :root {
   --navy: #243044;
   --coral: #FF6A4D;
@@ -10,28 +9,10 @@
   --porcelain: #FAF7F3;
 }
 
-/* Booking widget tokens - tweak these to restyle */
-:root {
-  --bw-primary: var(--navy);
-  --bw-accent: var(--coral);
-  --bw-radius: 0.75rem;
-}
-
-/*
-  One-accent rule: only --bw-accent should stand out.
-  Coral ratio warning: use coral sparingly (\u2264 10% of the widget).
-*/
-
-@layer utilities {
-  .bw-card {
-    @apply bg-[var(--bw-primary)] text-[var(--porcelain)] rounded-[var(--bw-radius)] p-4;
-  }
-
-  .bw-btn {
-    @apply bg-[var(--bw-accent)] text-[var(--porcelain)] rounded-[var(--bw-radius)] px-4 py-2 font-bold;
-  }
-
-  .bw-input {
-    @apply border border-[var(--bw-accent)] rounded-[var(--bw-radius)] p-2 focus:outline-none;
-  }
+@layer components {
+  #booking-root { @apply flex items-center justify-center min-h-screen bg-[var(--bw-primary)]; }
+  #bw-card { @apply bg-[var(--porcelain)] text-black max-w-lg w-[90vw] rounded-2xl shadow-xl p-8 relative; }
+  .btn-main { @apply bg-[var(--bw-accent)] text-white font-semibold rounded-lg px-6 py-3 hover:opacity-90 transition; }
+  .input-field { @apply w-full border border-gray-300 rounded-md p-2 text-black focus:outline-none focus:ring-2 focus:ring-[var(--bw-accent)]; }
+  .btn-slot { @apply border rounded py-2 text-center hover:bg-[var(--bw-accent)] hover:text-white transition; }
 }
