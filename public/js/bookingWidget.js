@@ -12,9 +12,10 @@ window.addEventListener('DOMContentLoaded', () => {
   if (accent) document.documentElement.style.setProperty('--clr-coral', accent);
 
   // Enforce brand rules
-  const invalidPrimary = primary && primary !== 'var(--navy)' && primary !== 'var(--clr-navy)';
-  const invalidAccent = accent && accent !== 'var(--coral)' && accent !== 'var(--clr-coral)';
-  if (invalidPrimary && invalidAccent) {
+  const defaultPrimary = getComputedStyle(document.documentElement).getPropertyValue('--navy').trim();
+  const defaultAccent = getComputedStyle(document.documentElement).getPropertyValue('--coral').trim();
+  const invalidColors = primary && accent && primary !== defaultPrimary && accent !== defaultAccent;
+  if (invalidColors) {
     console.error('Brand colors must include --navy or --coral');
     return;
   }
@@ -41,7 +42,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   // Trigger MailerLite popup on exit intent
-  ouibounce(null, {
+  ouibounce(document.body, {
     aggressive: true,
     callback: () => window.MailerLite?.showPopup?.(),
   });
