@@ -2,8 +2,9 @@
   "name": "ashourmindset",
   "type": "module",
   "dependencies": {
+    "dotenv": "^16.0.0",
     "openai": "^4.0.0",
-    "dotenv": "^16.0.0"
+    "ouibounce": "^0.0.12"
   },
   "scripts": {
     "lint:translations": "node scripts/checkTranslations.js"
