@@ -1,6 +1,6 @@
 // @ts-check
 /*───────────────────────────────────────────────────────────────
-  BRAND-SAFE BOOKING WIDGET – 4 Step Wizard
+  BRAND-SAFE BOOKING WIDGET – Enhanced 4 Step Wizard
 ────────────────────────────────────────────────────────────────*/
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   root.innerHTML = `
     <div id="bw-card" class="max-w-lg w-[90vw] bg-[var(--porcelain)] rounded-2xl shadow-xl p-8 relative">
-      <nav id="bw-steps" class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-sm font-semibold mb-6"></nav>
-      <div id="bw-stage" class="min-h-[200px]"></div>
+      <nav id="bw-steps" class="grid grid-cols-4 gap-2 text-center text-sm font-semibold mb-6"></nav>
+      <div id="bw-stage" class="min-h-[220px]"></div>
       <div class="sticky bottom-0 left-0 pb-2 pt-4 bg-[var(--porcelain)]">
-        <button id="bw-cta" class="btn-main w-full">Next</button>
+        <button id="bw-cta" class="btn-main w-full" disabled>Next</button>
       </div>
     </div>`;
 
@@ -32,29 +32,46 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderSteps() {
     const nav = document.getElementById('bw-steps');
     if (!nav) return;
-    nav.innerHTML = steps.map((s,i) => `<div class="py-1 ${step===i?'text-[var(--bw-accent)]':'text-gray-500'}">${s}</div>`).join('');
+    nav.innerHTML = steps.map((s,i) => {
+      return `<div class="bw-step${step===i?' active':''}">${s}</div>`;
+    }).join('');
+  }
+
+  function setCTAState(enabled) {
+    cta.disabled = !enabled;
+  }
+
+  function selectService(val) {
+    data.service = val;
+    setCTAState(true);
   }
 
   function loadSlots(date) {
-    const wrap = document.getElementById('bw-slots');
-    if (!wrap) return;
-    wrap.innerHTML = '';
-    ['10:00','14:00','18:00'].forEach(t => {
+    const m = document.getElementById('bw-morning');
+    const a = document.getElementById('bw-afternoon');
+    if (!m || !a) return;
+    m.innerHTML = '';
+    a.innerHTML = '';
+    const morning = ['09:00','09:30','10:00','10:30','11:00'];
+    const afternoon = ['14:00','14:30','15:00','15:30','16:00'];
+    const add = (wrap,t) => {
       const b = document.createElement('button');
       b.className = 'btn-slot';
       b.textContent = t;
       b.addEventListener('click', () => {
         data.date = date.toISOString().split('T')[0];
         data.time = t;
-        step++;
-        render();
+        setCTAState(true);
       });
       wrap.appendChild(b);
-    });
+    };
+    morning.forEach(t => add(m,t));
+    afternoon.forEach(t => add(a,t));
   }
 
   function renderStage() {
     if (!stage) return;
+    setCTAState(false);
     switch(step) {
       case 0:
         stage.innerHTML = `
@@ -65,9 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         stage.querySelectorAll('.btn-slot').forEach(btn => {
           btn.addEventListener('click', e => {
             const val = /** @type {HTMLElement} */(e.currentTarget).dataset.val || '';
-            data.service = val;
-            step++;
-            render();
+            selectService(val);
           });
         });
         break;
@@ -75,7 +90,10 @@ document.addEventListener('DOMContentLoaded', () => {
         stage.innerHTML = `
           <div class="grid sm:grid-cols-2 gap-4">
             <div id="bw-calendar"></div>
-            <div id="bw-slots" class="grid grid-cols-1 sm:grid-cols-2 gap-2"></div>
+            <div>
+              <div class="slot-group"><h4 class="slot-heading">Morning</h4><div id="bw-morning" class="slot-wrap"></div></div>
+              <div class="slot-group mt-4"><h4 class="slot-heading">Afternoon</h4><div id="bw-afternoon" class="slot-wrap"></div></div>
+            </div>
           </div>`;
         flatpickr('#bw-calendar', {
           inline: true,
@@ -86,21 +104,52 @@ document.addEventListener('DOMContentLoaded', () => {
       case 2:
         stage.innerHTML = `
           <div class="space-y-4">
-            <input id="bw-name" class="input-field" type="text" placeholder="Name" />
-            <input id="bw-email" class="input-field" type="email" placeholder="Email" />
-            <input id="bw-phone" class="input-field" type="tel" placeholder="Phone" />
+            <input id="bw-name" class="input-field" type="text" placeholder="Name" required />
+            <input id="bw-email" class="input-field" type="email" placeholder="Email" required />
+            <input id="bw-phone" class="input-field" type="tel" placeholder="Phone" required />
           </div>`;
+        stage.querySelectorAll('input').forEach(inp => {
+          inp.addEventListener('input', validateForm);
+        });
+        validateForm();
         break;
       case 3:
         stage.innerHTML = `
-          <div class="space-y-2">
-            <p>Service: ${data.service}</p>
-            <p>Date: ${data.date}</p>
-            <p>Time: ${data.time}</p>
-          </div>`;
+          <table class="bw-summary w-full mb-4 text-left text-sm">
+            <tr><th class="pr-2">Service:</th><td>${data.service}</td></tr>
+            <tr><th class="pr-2">Date:</th><td>${data.date}</td></tr>
+            <tr><th class="pr-2">Time:</th><td>${data.time}</td></tr>
+            <tr><th class="pr-2">Name:</th><td>${data.name}</td></tr>
+            <tr><th class="pr-2">Email:</th><td>${data.email}</td></tr>
+            <tr><th class="pr-2">Phone:</th><td>${data.phone}</td></tr>
+            <tr><th class="pr-2">Redeem Package:</th>
+              <td><select id="bw-package" class="input-field mt-1">
+                    <option value="">None</option>
+                    <option>5 Sessions</option>
+                    <option>10 Sessions</option>
+                  </select></td></tr>
+            <tr class="font-semibold"><th>Total Price:</th><td id="bw-price">${root.dataset.bwPrice || 'AED 150'}</td></tr>
+          </table>`;
+        setCTAState(true);
+        cta.textContent = 'Book Appointment';
         break;
     }
-    cta.textContent = step===3 ? 'Pay now' : 'Next';
+    if(step<3) cta.textContent='Next';
+  }
+
+  function validateForm() {
+    const name  = /** @type {HTMLInputElement} */(document.getElementById('bw-name'));
+    const email = /** @type {HTMLInputElement} */(document.getElementById('bw-email'));
+    const phone = /** @type {HTMLInputElement} */(document.getElementById('bw-phone'));
+    if(!name || !email || !phone) return;
+    const valid = name.value.trim() && email.checkValidity() && phone.value.trim();
+    setCTAState(valid);
+  }
+
+  function collectForm() {
+    data.name  = /** @type {HTMLInputElement} */(document.getElementById('bw-name')).value.trim();
+    data.email = /** @type {HTMLInputElement} */(document.getElementById('bw-email')).value.trim();
+    data.phone = /** @type {HTMLInputElement} */(document.getElementById('bw-phone')).value.trim();
   }
 
   function render() {
@@ -109,12 +158,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function next() {
-    if (step===2) {
-      data.name  = /** @type {HTMLInputElement} */(document.getElementById('bw-name')).value;
-      data.email = /** @type {HTMLInputElement} */(document.getElementById('bw-email')).value;
-      data.phone = /** @type {HTMLInputElement} */(document.getElementById('bw-phone')).value;
-    }
-    if (step < 3) { step++; render(); } else { pay(); }
+    if(step===0 && data.service){ step++; render(); return; }
+    if(step===1 && data.date && data.time){ step++; render(); return; }
+    if(step===2){ collectForm(); if(cta.disabled) return; step++; render(); return; }
+    if(step===3){ pay(); }
   }
 
   cta.addEventListener('click', next);
