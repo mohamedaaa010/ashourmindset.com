@@ -2,10 +2,14 @@
   "name": "ashourmindset",
   "type": "module",
   "dependencies": {
+    "dotenv": "^16.6.1",
+    "meeting-js": "^1.0.0",
     "openai": "^4.0.0",
-    "dotenv": "^16.0.0"
+    "ouibounce": "^0.0.12",
+    "stripe": "^18.3.0"
   },
   "scripts": {
-    "lint:translations": "node scripts/checkTranslations.js"
+    "lint:translations": "node scripts/checkTranslations.js",
+    "build:widget": "esbuild public/js/bookingWidget.js --bundle --minify --outfile=public/js/bookingWidget.min.js"
   }
 }
