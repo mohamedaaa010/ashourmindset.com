@@ -20,3 +20,5 @@ yarn-error.log*
 # Coverage
 coverage/
 
+__pycache__/
+tests/__pycache__/
