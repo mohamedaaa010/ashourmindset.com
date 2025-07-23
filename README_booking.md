@@ -1,38 +1,29 @@
 # Booking Widget Guide
 
-## Quick Start
-1. Install **Node.js** (v18 or newer).
-2. Run `npm install` in the repository root.
-3. Build the widget with `npm run build:widget` (outputs to `dist/booking-widget.js`).
+This site now uses a Cal.com element-click scheduler instead of the previous custom widget.
 
-## HTML Embed Snippet
+## Embed Snippet
+
+Add the script below anywhere on your page. Then apply the `data-cal-*` attributes to the element that should open the calendar on click.
+
 ```html
-<script src="/dist/booking-widget.js"
-        data-locale="en"
-        data-accent="#FF6A4D"
-        data-bg="#243044"
-        data-booking-url="https://your-booking-service.com"></script>
-```
-Override any of the `data-*` attributes to customize the widget.
+<script type="text/javascript">
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", "45min", {origin:"https://app.cal.com"});
 
-## Required Environment Variables
-Create a `.env` file with:
-```
-OPENAI_API_KEY=YOUR_KEY_HERE
-BOOKING_API_URL=https://your-booking-service.com/api
-BOOKING_API_KEY=YOUR_BOOKING_KEY
+  // Important: add these attributes to the clickable element
+  // data-cal-link="ashour-mindset/45min"
+  // data-cal-namespace="45min"
+  // data-cal-config='{"layout":"month_view","theme":"light"}'
+
+  Cal.ns["45min"]("ui", {"theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#FA6E00"},"dark":{"cal-brand":"#FA6E00"}},"hideEventTypeDetails":false,"layout":"month_view"});
+</script>
 ```
 
-## Brand Compliance
-The palette is defined in `src/style.css`:
-```css
---clr-navy  : #243044;
---clr-coral : #FF6A4D;
---clr-aqua  : #3FD0C9;
---clr-white : #FAF7F3;
-```
-- Keep coral usage under roughly 15% of any page to preserve contrast.
-- Stick to one accent color (coral) across the interface.
+Update the `calLink` property if you use a different Cal.com account.
 
-## Staging Deployment
-Deploy the widget to a staging site (e.g., via Cloudflare Pages) so stakeholders can review changes before production. Share the staging URL with reviewers for feedback.
+For better mobile support, include a viewport meta tag in your page:
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1">
+```
