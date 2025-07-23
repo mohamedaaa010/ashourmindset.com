@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base palette shared across the site */
+:root {
+  --navy: #243044;
+  --coral: #FF6A4D;
+  --aqua: #3FD0C9;
+  --porcelain: #FAF7F3;
+}
+
+/* Booking widget tokens - tweak these to restyle */
+:root {
+  --bw-primary: var(--navy);
+  --bw-accent: var(--coral);
+  --bw-radius: 0.75rem;
+}
+
+/*
+  One-accent rule: only --bw-accent should stand out.
+  Coral ratio warning: use coral sparingly (\u2264 10% of the widget).
+*/
+
+@layer utilities {
+  .bw-card {
+    @apply bg-[var(--bw-primary)] text-[var(--porcelain)] rounded-[var(--bw-radius)] p-4;
+  }
+
+  .bw-btn {
+    @apply bg-[var(--bw-accent)] text-[var(--porcelain)] rounded-[var(--bw-radius)] px-4 py-2 font-bold;
+  }
+
+  .bw-input {
+    @apply border border-[var(--bw-accent)] rounded-[var(--bw-radius)] p-2 focus:outline-none;
+  }
+}
