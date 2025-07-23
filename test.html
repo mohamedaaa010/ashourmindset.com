@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AshourMindset – Widget Preview</title>
+
+  <!-- Minimal styling just for the preview page -->
+  <style>
+    :root {
+      --navy: #243044;
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: var(--navy);
+      font-family: system-ui, -apple-system, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Widget root with sample data-attributes -->
+  <div id="booking-root"
+       data-bw-headline="Invest in Your Future"
+       data-bw-price="149"
+       data-bw-discount="75"
+       data-bw-primary="#243044"
+       data-bw-accent="#FF6A4D">
+  </div>
+
+  <!-- Booking widget bundle -->
+  <script type="module" src="/public/js/bookingWidget.min.js"></script>
+</body>
+</html>
+
