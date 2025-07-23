@@ -7,9 +7,11 @@
   --bw-primary:var(--navy); --bw-accent:var(--coral);
 }
 
-@layer components{
-  .btn-main{@apply bg-[var(--bw-accent)] text-white font-semibold rounded-lg px-6 py-3 hover:opacity-90 transition;}
-  .input-field{@apply w-full border border-gray-300 rounded-md p-2 text-black focus:outline-none focus:ring-2 focus:ring-[var(--bw-accent)];}
-  .btn-slot{@apply border rounded py-2 text-center hover:bg-[var(--bw-accent)] hover:text-white transition;}
+@layer components {
+  #booking-root { @apply flex items-center justify-center min-h-screen bg-[var(--bw-primary)]; }
+  #bw-card { @apply bg-[var(--porcelain)] text-black max-w-lg w-[90vw] rounded-2xl shadow-xl p-8 relative; }
+  .btn-main { @apply bg-[var(--bw-accent)] text-white font-semibold rounded-lg px-6 py-3 hover:opacity-90 transition; }
+  .input-field { @apply w-full border border-gray-300 rounded-md p-2 text-black focus:outline-none focus:ring-2 focus:ring-[var(--bw-accent)]; }
+  .btn-slot { @apply border rounded py-2 text-center hover:bg-[var(--bw-accent)] hover:text-white transition; }
 }
 body{background:var(--bw-primary);}

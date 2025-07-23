@@ -1,7 +1,9 @@
 // @ts-check
+/*───────────────────────────────────────────────────────────────
+  BRAND-SAFE BOOKING WIDGET – 4 Step Wizard
+────────────────────────────────────────────────────────────────*/
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
-import ouibounce from 'ouibounce';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('booking-root');
@@ -151,22 +153,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   render();
 
-  // Exit-intent popup
-  const wrap = document.createElement('div');
-  wrap.innerHTML = `
-    <div id="bw-popup" class="fixed inset-0 bg-black/60 flex items-center justify-center hidden">
-      <div class="bg-[var(--porcelain)] p-6 rounded-2xl max-w-sm text-center shadow-xl">
-        <h3 class="text-lg font-bold mb-2">Wait! 50 % Off</h3>
-        <p class="mb-4">Complete your booking now for just AED ${root.dataset.bwDiscount || '75'}.</p>
-        <button id="bw-discount" class="btn-main px-8">Claim discount</button>
-      </div>
-    </div>`;
-  document.body.appendChild(wrap);
-  const popup = document.getElementById('bw-popup');
-  if (popup) {
+  import('ouibounce').then(({ default: ouibounce }) => {
+    const wrap = document.createElement('div');
+    wrap.innerHTML = `
+      <div id="bw-popup" class="fixed inset-0 bg-black/60 flex items-center justify-center hidden">
+        <div class="bg-[var(--porcelain)] p-6 rounded-2xl max-w-sm text-center shadow-xl">
+          <h3 class="text-lg font-bold mb-2">Wait! 50 % Off</h3>
+          <p class="mb-4">Complete your booking now for just AED ${root.dataset.bwDiscount || '75'}.</p>
+          <button id="bw-discount" class="btn-main px-8">Claim discount</button>
+        </div>
+      </div>`;
+    document.body.appendChild(wrap);
+    const popup = document.getElementById('bw-popup');
+    if (!popup) return;
     ouibounce(popup, { aggressive: true });
     document.getElementById('bw-discount')?.addEventListener('click', () => {
       window.location.assign('/discount-link');
     });
-  }
+  });
 });
