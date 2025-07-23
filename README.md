@@ -40,6 +40,9 @@ ashour-mindset-final/
 ├── src/
 │   ├── main.js             # Main JavaScript functionality
 │   └── style.css           # Custom CSS styles
+├── tests/
+│   ├── replace_location.js     # Node script for location replacement
+│   └── test_address_cleaner.py # Pytest suite for address cleaner
 └── tailwind.config.js      # Tailwind CSS configuration
 ```
 
@@ -103,6 +106,13 @@ This website prioritizes mobile experience with:
 - **Responsive Design**: Mobile-first approach
 - **Accessibility**: WCAG 2.1 AA compliant
 
+## 📦 Installation
+
+1. Install **Node.js** (version 18 or later recommended).
+2. Run `npm install` in the project root to install dependencies.
+3. Copy `.env.example` to `.env` and add your OpenAI API key.
+4. Use `npm run lint:translations` to verify translation files.
+
 ## 📞 Support
 
 For technical support or customization requests, refer to the included `WEBSITE_MANAGEMENT_GUIDE.md` for detailed instructions on managing content without coding experience.
@@ -111,4 +121,23 @@ For technical support or customization requests, refer to the included `WEBSITE_
 
 **Last Updated**: July 2025  
 **Version**: 1.0.0
+
+## Translation Consistency Test
+
+```bash
+# run full lint (requires OPENAI_API_KEY)
+node scripts/checkTranslations.js
+```
+
+This script validates that all translation files are aligned. Ensure you have a
+`.env` file with `OPENAI_API_KEY` (or set the variable in your environment) before
+running it.
+
+## Translation Quality Check
+
+1. Install dependencies with `npm install`.
+2. Copy `.env.example` to `.env` and add your OpenAI API key.
+3. Run `node test/checkTranslations.js`.
+
+The script uses the OpenAI API for quality checking, so a valid API key is required.
 

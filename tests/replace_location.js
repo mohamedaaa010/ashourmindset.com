@@ -28,4 +28,5 @@ function walk(dir) {
   }
 }
 
-walk('.');
+// Start walking from the repository root regardless of script location
+walk(path.join(__dirname, '..'));

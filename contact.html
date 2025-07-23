@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Ashour Mindset</title>
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAAAAACPAi4CAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAACYktHRAD/h4/MvwAAAAd0SU1FB+kHFQ0kFbyVDUkAAAHXSURBVFjD7ddLaxNhFIDhZ2qgNl6Q2p1FiisRRaTgTgQvOxeiptbW7gTFH+DC3+BvEDetLYggRbxsRJSCCysWREEQq1AXXomm2mgyLtLQNJkkM1MQF/k2831nzrycd85hYILQ2lbXGp/vADqADuCfAMKBIAiC4ElqwON5MJEaMF65TJValtl8LfUu59xvkdSqgjtfELRzaAHPof8kNv9MVUF+GiPDyN9OVcFVmCtswInmWS0Ah7G7ItL9LYXCwgOMMYSlmykUriB4F4aFLI6kUNiHg9VmdH1IrPDyGc5CDuWpxAqX0f01DJcd9idVKA+sdC8HrxMqzLzFaGWfg+sJFS5gy6/KvpDFzmQKxa04Vz3lYDaRwt3P1R60dYjmnkZ/uXoqZFcdYyjke3Bp5ZyDhwkA16JqPZ8AcDQK0FuMDVhYF/m6pqNyM1GZkyUMbqqJ5GcxcSxuFwbVfwcXNyL7I+YcvHqKU+trQz3HsXgrIjkKMK52iiprhCaf94iqdmBbaXXsdx8yH2MpzLzBaN2NzBD+3IhVwUWYq48+ggNx5qDYhz0N4fJ2BPMxFO59wlhDODiDcDKGwjC63jfW+hz2tlf4nsWhqPHaBS/qo0Hnj6UD6AD+E8BfGwiBELByaroAAAAASUVORK5CYII=">
     <meta name="description" content="Get in touch with Ashour Mindset to start your transformation journey. Schedule a consultation or ask questions about our coaching services.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -76,15 +77,50 @@
                 <div class="h-8 w-32 bg-coral rounded flex items-center justify-center text-porcelain font-head font-bold">ASHOUR</div>
             </a>
             <div class="flex items-center space-x-8">
+                <button class="mobile-menu-button md:hidden text-porcelain focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
                 <ul class="hidden md:flex space-x-8 text-porcelain">
                     <li><a href="/" class="hover:text-coral transition-colors duration-200" data-translate="nav.home">Home</a></li>
                     <li><a href="about.html" class="hover:text-coral transition-colors duration-200" data-translate="nav.about">About</a></li>
                     <li><a href="services.html" class="hover:text-coral transition-colors duration-200" data-translate="nav.services">Services</a></li>
                     <li><a href="testimonials.html" class="hover:text-coral transition-colors duration-200" data-translate="nav.testimonials">Testimonials</a></li>
-                    <li><a href="contact.html" class="text-coral" data-translate="nav.contact">Contact</a></li>
                 </ul>
+                <div class="relative nav-item hidden md:block">
+                    <button class="lang-switcher text-porcelain hover:text-coral transition-colors duration-200 flex items-center space-x-2">
+                        <img src="assets/icons/uk-flag.png" alt="English" class="w-4 h-4 rounded-full">
+                        <span>EN</span>
+                    </button>
+                    <div class="dropdown-panel absolute right-0 mt-2 w-32 text-left">
+                        <a href="#" class="flex items-center space-x-2 py-2 px-3 hover:text-coral rounded" data-lang-code="en">
+                            <img src="assets/icons/uk-flag.png" alt="English" class="w-4 h-4 rounded-full">
+                            <span>English</span>
+                        </a>
+                        <a href="#" class="flex items-center space-x-2 py-2 px-3 hover:text-coral rounded" data-lang-code="de">
+                            <img src="assets/icons/germany-flag.png" alt="German" class="w-4 h-4 rounded-full">
+                            <span>Deutsch</span>
+                        </a>
+                        <a href="#" class="flex items-center space-x-2 py-2 px-3 hover:text-coral rounded" data-lang-code="ar">
+                            <img src="assets/icons/egypt-flag.png" alt="Arabic" class="w-4 h-4 rounded-full">
+                            <span>العربية</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu hidden md:hidden absolute top-full left-0 w-full bg-navy text-porcelain">
+            <ul class="flex flex-col p-4 space-y-2 text-center">
+                <li><a href="/" class="hover:text-coral transition-colors duration-200" data-translate="nav.home">Home</a></li>
+                <li><a href="about.html" class="hover:text-coral transition-colors duration-200" data-translate="nav.about">About</a></li>
+                <li><a href="services.html" class="hover:text-coral transition-colors duration-200" data-translate="nav.services">Services</a></li>
+                <li><a href="testimonials.html" class="hover:text-coral transition-colors duration-200" data-translate="nav.testimonials">Testimonials</a></li>
+            </ul>
+            <div class="p-4 flex justify-center md:hidden">
                 <div class="relative nav-item">
-                    <button id="lang-switcher" class="text-porcelain hover:text-coral transition-colors duration-200 flex items-center space-x-2">
+                    <button class="lang-switcher text-porcelain hover:text-coral transition-colors duration-200 flex items-center space-x-2">
                         <img src="assets/icons/uk-flag.png" alt="English" class="w-4 h-4 rounded-full">
                         <span>EN</span>
                     </button>
@@ -111,7 +147,7 @@
     <section class="pt-24 pb-20 bg-gradient-to-br from-navy to-aqua">
         <div class="container mx-auto px-6 max-w-7xl text-center">
             <h1 class="font-head font-bold text-5xl md:text-6xl text-porcelain leading-tight mb-6">Let's Start Your Journey</h1>
-            <p class="text-xl text-porcelain opacity-90 mb-8 max-w-3xl mx-auto">Ready to transform your mindset and unlock your potential? Get in touch to schedule your free consultation and take the first step towards lasting change.</p>
+            <p class="text-xl text-porcelain opacity-90 mb-8 max-w-3xl mx-auto">Ready to transform your mindset and unlock your potential? Get in touch to schedule your paid consultation and take the first step towards lasting change.</p>
         </div>
     </section>
 
@@ -155,7 +191,7 @@
                                 <option value="executive-coaching">Executive Coaching</option>
                                 <option value="custom-program">Custom Program</option>
                                 <option value="speaking-engagement">Speaking Engagement</option>
-                                <option value="consultation">Free Consultation</option>
+                                <option value="consultation">Paid Consultation</option>
                             </select>
                         </div>
                         
@@ -266,7 +302,7 @@
                                     </div>
                                     <div>
                                         <h4 class="font-semibold text-navy">Discovery Call</h4>
-                                        <p class="text-gray-600 text-sm">Schedule a free 30-minute consultation to discuss your goals and needs.</p>
+                                        <p class="text-gray-600 text-sm">Schedule a 30-minute paid consultation to discuss your goals and needs.</p>
                                     </div>
                                 </div>
                                 
@@ -296,29 +332,29 @@
             </div>
             
             <div class="max-w-4xl mx-auto space-y-6">
-                <div class="bg-white rounded-2xl p-6">
-                    <h3 class="font-head font-bold text-xl text-navy mb-3">How do I schedule a free consultation?</h3>
-                    <p class="text-gray-600">Simply fill out the contact form above or send an email directly. We'll respond within 24 to 48 hours to schedule your 30-minute discovery call.</p>
+                <div class="faq-item bg-white rounded-2xl p-6">
+                    <h3 class="faq-question font-head font-bold text-xl text-navy mb-3">How do I schedule a consultation?</h3>
+                    <p class="faq-answer text-gray-600" style="display:none;">Simply fill out the contact form above or send an email directly. We'll respond within 24 to 48 hours with payment details to schedule your 30-minute discovery call.</p>
                 </div>
-                
-                <div class="bg-white rounded-2xl p-6">
-                    <h3 class="font-head font-bold text-xl text-navy mb-3">Do you offer virtual coaching sessions?</h3>
-                    <p class="text-gray-600">Yes! All our coaching services are available both in-person and virtually via secure video conferencing. Many clients prefer the convenience of virtual sessions.</p>
+
+                <div class="faq-item bg-white rounded-2xl p-6">
+                    <h3 class="faq-question font-head font-bold text-xl text-navy mb-3">Do you offer virtual coaching sessions?</h3>
+                    <p class="faq-answer text-gray-600" style="display:none;">Yes! All our coaching services are available both in-person and virtually via secure video conferencing. Many clients prefer the convenience of virtual sessions.</p>
                 </div>
-                
-                <div class="bg-white rounded-2xl p-6">
-                    <h3 class="font-head font-bold text-xl text-navy mb-3">What information should I include in my message?</h3>
-                    <p class="text-gray-600">Please share your current challenges, goals, and what you hope to achieve through coaching. The more specific you are, the better we can tailor our initial conversation to your needs.</p>
+
+                <div class="faq-item bg-white rounded-2xl p-6">
+                    <h3 class="faq-question font-head font-bold text-xl text-navy mb-3">What information should I include in my message?</h3>
+                    <p class="faq-answer text-gray-600" style="display:none;">Please share your current challenges, goals, and what you hope to achieve through coaching. The more specific you are, the better we can tailor our initial conversation to your needs.</p>
                 </div>
-                
-                <div class="bg-white rounded-2xl p-6">
-                    <h3 class="font-head font-bold text-xl text-navy mb-3">How quickly can I start a coaching program?</h3>
-                    <p class="text-gray-600">Depending on availability and your preferred timeline, most clients can begin their coaching journey within 1-2 weeks of their initial consultation.</p>
+
+                <div class="faq-item bg-white rounded-2xl p-6">
+                    <h3 class="faq-question font-head font-bold text-xl text-navy mb-3">How quickly can I start a coaching program?</h3>
+                    <p class="faq-answer text-gray-600" style="display:none;">Depending on availability and your preferred timeline, most clients can begin their coaching journey within 1-2 weeks of their initial consultation.</p>
                 </div>
-                
-                <div class="bg-white rounded-2xl p-6">
-                    <h3 class="font-head font-bold text-xl text-navy mb-3">Do you offer payment plans?</h3>
-                    <p class="text-gray-600">Yes, we offer flexible payment options including monthly installments for all our programs. We'll discuss payment options during the consultation.</p>
+
+                <div class="faq-item bg-white rounded-2xl p-6">
+                    <h3 class="faq-question font-head font-bold text-xl text-navy mb-3">Do you offer payment plans?</h3>
+                    <p class="faq-answer text-gray-600" style="display:none;">Yes, we offer flexible payment options including monthly installments for all our programs. We'll discuss payment options during the consultation.</p>
                 </div>
             </div>
         </div>
@@ -330,7 +366,7 @@
             <h2 class="font-head font-bold text-4xl md:text-5xl text-porcelain mb-6">Ready to Transform Your Life?</h2>
             <p class="text-lg text-porcelain opacity-80 mb-8 max-w-2xl mx-auto">Don't wait another day to start your journey towards clarity, confidence, and success. Your transformation begins with a single conversation.</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#contact-form" class="btn-luxe">Schedule Free Consultation</a>
+                <a href="#contact-form" class="btn-luxe">Schedule Consultation</a>
                 <a href="http://wa.me/971588806770" class="bg-transparent border-2 border-porcelain text-porcelain px-8 py-3 rounded-full font-semibold hover:bg-porcelain hover:text-navy transition-all duration-200">WhatsApp Now: +971 588806770</a>
             </div>
         </div>

@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "ashourmindset.com",
   "version": "1.0.0",
   "description": "A professional multilingual website for Ashour's mindset coaching and performance optimization services.",
@@ -24,5 +25,19 @@
     "dotenv": "^17.2.0",
     "openai": "^5.10.1",
     "p-limit": "^6.2.0"
+=======
+  "name": "ashourmindset",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "meeting-js": "^1.0.0",
+    "openai": "^4.0.0",
+    "ouibounce": "^0.0.12",
+    "stripe": "^18.3.0"
+  },
+  "scripts": {
+    "lint:translations": "node scripts/checkTranslations.js",
+    "build:widget": "esbuild public/js/bookingWidget.js --bundle --minify --outfile=public/js/bookingWidget.min.js"
+>>>>>>> 4852544ef2c2044de1cde12e6f8876b86036a56a
   }
 }

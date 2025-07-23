@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Ashour Mindset</title>
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAAAAACPAi4CAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAACYktHRAD/h4/MvwAAAAd0SU1FB+kHFQ0kFbyVDUkAAAHXSURBVFjD7ddLaxNhFIDhZ2qgNl6Q2p1FiisRRaTgTgQvOxeiptbW7gTFH+DC3+BvEDetLYggRbxsRJSCCysWREEQq1AXXomm2mgyLtLQNJkkM1MQF/k2831nzrycd85hYILQ2lbXGp/vADqADuCfAMKBIAiC4ElqwON5MJEaMF65TJValtl8LfUu59xvkdSqgjtfELRzaAHPof8kNv9MVUF+GiPDyN9OVcFVmCtswInmWS0Ah7G7ItL9LYXCwgOMMYSlmykUriB4F4aFLI6kUNiHg9VmdH1IrPDyGc5CDuWpxAqX0f01DJcd9idVKA+sdC8HrxMqzLzFaGWfg+sJFS5gy6/KvpDFzmQKxa04Vz3lYDaRwt3P1R60dYjmnkZ/uXoqZFcdYyjke3Bp5ZyDhwkA16JqPZ8AcDQK0FuMDVhYF/m6pqNyM1GZkyUMbqqJ5GcxcSxuFwbVfwcXNyL7I+YcvHqKU+trQz3HsXgrIjkKMK52iiprhCaf94iqdmBbaXXsdx8yH2MpzLzBaN2NzBD+3IhVwUWYq48+ggNx5qDYhz0N4fJ2BPMxFO59wlhDODiDcDKGwjC63jfW+hz2tlf4nsWhqPHaBS/qo0Hnj6UD6AD+E8BfGwiBELByaroAAAAASUVORK5CYII=">
     <meta name="description" content="Discover insights, strategies, and tips for personal and professional growth from Ashour Mindset.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -76,15 +77,50 @@
                 <div class="h-8 w-32 bg-coral rounded flex items-center justify-center text-porcelain font-head font-bold">ASHOUR</div>
             </a>
             <div class="flex items-center space-x-8">
+                <button class="mobile-menu-button md:hidden text-porcelain focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
                 <ul class="hidden md:flex space-x-8 text-porcelain">
                     <li><a href="/" class="hover:text-coral transition-colors duration-200" data-translate="nav.home">Home</a></li>
                     <li><a href="about.html" class="hover:text-coral transition-colors duration-200" data-translate="nav.about">About</a></li>
                     <li><a href="services.html" class="hover:text-coral transition-colors duration-200" data-translate="nav.services">Services</a></li>
                     <li><a href="testimonials.html" class="hover:text-coral transition-colors duration-200" data-translate="nav.testimonials">Testimonials</a></li>
-                    <li><a href="contact.html" class="hover:text-coral transition-colors duration-200" data-translate="nav.contact">Contact</a></li>
                 </ul>
+                <div class="relative nav-item hidden md:block">
+                    <button class="lang-switcher text-porcelain hover:text-coral transition-colors duration-200 flex items-center space-x-2">
+                        <img src="assets/icons/uk-flag.png" alt="English" class="w-4 h-4 rounded-full">
+                        <span>EN</span>
+                    </button>
+                    <div class="dropdown-panel absolute right-0 mt-2 w-32 text-left">
+                        <a href="#" class="flex items-center space-x-2 py-2 px-3 hover:text-coral rounded" data-lang-code="en">
+                            <img src="assets/icons/uk-flag.png" alt="English" class="w-4 h-4 rounded-full">
+                            <span>English</span>
+                        </a>
+                        <a href="#" class="flex items-center space-x-2 py-2 px-3 hover:text-coral rounded" data-lang-code="de">
+                            <img src="assets/icons/germany-flag.png" alt="German" class="w-4 h-4 rounded-full">
+                            <span>Deutsch</span>
+                        </a>
+                        <a href="#" class="flex items-center space-x-2 py-2 px-3 hover:text-coral rounded" data-lang-code="ar">
+                            <img src="assets/icons/egypt-flag.png" alt="Arabic" class="w-4 h-4 rounded-full">
+                            <span>العربية</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu hidden md:hidden absolute top-full left-0 w-full bg-navy text-porcelain">
+            <ul class="flex flex-col p-4 space-y-2 text-center">
+                <li><a href="/" class="hover:text-coral transition-colors duration-200" data-translate="nav.home">Home</a></li>
+                <li><a href="about.html" class="hover:text-coral transition-colors duration-200" data-translate="nav.about">About</a></li>
+                <li><a href="services.html" class="hover:text-coral transition-colors duration-200" data-translate="nav.services">Services</a></li>
+                <li><a href="testimonials.html" class="hover:text-coral transition-colors duration-200" data-translate="nav.testimonials">Testimonials</a></li>
+            </ul>
+            <div class="p-4 flex justify-center md:hidden">
                 <div class="relative nav-item">
-                    <button id="lang-switcher" class="text-porcelain hover:text-coral transition-colors duration-200 flex items-center space-x-2">
+                    <button class="lang-switcher text-porcelain hover:text-coral transition-colors duration-200 flex items-center space-x-2">
                         <img src="assets/icons/uk-flag.png" alt="English" class="w-4 h-4 rounded-full">
                         <span>EN</span>
                     </button>
