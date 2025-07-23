@@ -89,8 +89,8 @@
                     <li><a href="services.html" class="hover:text-coral transition-colors duration-200" data-translate="nav.services">Services</a></li>
                     <li><a href="testimonials.html" class="text-coral" data-translate="nav.testimonials">Testimonials</a></li>
                 </ul>
-                <div class="relative nav-item">
-                    <button id="lang-switcher" class="text-porcelain hover:text-coral transition-colors duration-200 flex items-center space-x-2">
+                <div class="relative nav-item hidden md:block">
+                    <button class="lang-switcher text-porcelain hover:text-coral transition-colors duration-200 flex items-center space-x-2">
                         <img src="assets/icons/uk-flag.png" alt="English" class="w-4 h-4 rounded-full">
                         <span>EN</span>
                     </button>
@@ -118,6 +118,28 @@
                 <li><a href="services.html" class="hover:text-coral transition-colors duration-200" data-translate="nav.services">Services</a></li>
                 <li><a href="testimonials.html" class="text-coral" data-translate="nav.testimonials">Testimonials</a></li>
             </ul>
+            <div class="p-4 flex justify-center md:hidden">
+                <div class="relative nav-item">
+                    <button class="lang-switcher text-porcelain hover:text-coral transition-colors duration-200 flex items-center space-x-2">
+                        <img src="assets/icons/uk-flag.png" alt="English" class="w-4 h-4 rounded-full">
+                        <span>EN</span>
+                    </button>
+                    <div class="dropdown-panel absolute right-0 mt-2 w-32 text-left">
+                        <a href="#" class="flex items-center space-x-2 py-2 px-3 hover:text-coral rounded" data-lang-code="en">
+                            <img src="assets/icons/uk-flag.png" alt="English" class="w-4 h-4 rounded-full">
+                            <span>English</span>
+                        </a>
+                        <a href="#" class="flex items-center space-x-2 py-2 px-3 hover:text-coral rounded" data-lang-code="de">
+                            <img src="assets/icons/germany-flag.png" alt="German" class="w-4 h-4 rounded-full">
+                            <span>Deutsch</span>
+                        </a>
+                        <a href="#" class="flex items-center space-x-2 py-2 px-3 hover:text-coral rounded" data-lang-code="ar">
+                            <img src="assets/icons/egypt-flag.png" alt="Arabic" class="w-4 h-4 rounded-full">
+                            <span>العربية</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
 

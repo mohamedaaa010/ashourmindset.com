@@ -26,11 +26,11 @@ document.addEventListener("DOMContentLoaded", function() {
         });
         
         // Update language switcher with flag and text
-        const langSwitcher = document.getElementById('lang-switcher');
-        if (langSwitcher) {
+        const langSwitchers = document.querySelectorAll('.lang-switcher');
+        langSwitchers.forEach(langSwitcher => {
             const flagImg = langSwitcher.querySelector('img');
             const textSpan = langSwitcher.querySelector('span');
-            
+
             if (flagImg && textSpan) {
                 switch(currentLanguage) {
                     case 'en':
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         break;
                 }
             }
-        }
+        });
         
         // Update document direction for Arabic
         if (currentLanguage === 'ar') {
