@@ -1,14 +1,16 @@
 {
-<<<<<<< HEAD
-  "name": "ashourmindset.com",
+  "name": "ashourmindset",
   "version": "1.0.0",
-  "description": "A professional multilingual website for Ashour's mindset coaching and performance optimization services.",
+  "description": "A professional multilingual website for Ashour's mindset coaching and performance-optimization services.",
+  "type": "module",
   "main": "replace_location.js",
   "directories": {
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:translations": "node scripts/checkTranslations.js",
+    "build:widget": "esbuild public/js/bookingWidget.js --bundle --minify --outfile=public/js/bookingWidget.min.js"
   },
   "repository": {
     "type": "git",
@@ -23,21 +25,10 @@
   "homepage": "https://github.com/mohamedaaa010/ashourmindset.com#readme",
   "dependencies": {
     "dotenv": "^17.2.0",
+    "meeting-js": "^1.5.0",
     "openai": "^5.10.1",
-    "p-limit": "^6.2.0"
-=======
-  "name": "ashourmindset",
-  "type": "module",
-  "dependencies": {
-    "dotenv": "^16.6.1",
-    "meeting-js": "^1.0.0",
-    "openai": "^4.0.0",
     "ouibounce": "^0.0.12",
+    "p-limit": "^6.2.0",
     "stripe": "^18.3.0"
-  },
-  "scripts": {
-    "lint:translations": "node scripts/checkTranslations.js",
-    "build:widget": "esbuild public/js/bookingWidget.js --bundle --minify --outfile=public/js/bookingWidget.min.js"
->>>>>>> 4852544ef2c2044de1cde12e6f8876b86036a56a
   }
 }
